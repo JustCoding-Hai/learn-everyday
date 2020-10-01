@@ -17,7 +17,22 @@
     <properties>
         <java.version>1.8</java.version>
     </properties>
-
+    <modules>
+        <module>learn-freemarker</module>
+        <module>learn-java8</module>
+        <module>learn-jdbctemplate</module>
+        <module>learn-mail</module>
+        <module>learn-mybatis</module>
+        <module>learn-quartz</module>
+        <module>learn-rabbitmq</module>
+        <module>learn-redis</module>
+        <module>learn-springcloud</module>
+        <module>learn-springsecurity</module>
+        <module>learn-swagger</module>
+        <module>learn-thymeleaf</module>
+        <module>learn-unittest</module>
+        <module>learn-websocket</module>
+    </modules>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
