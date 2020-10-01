@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="top.javahai.entity.NewsEntity" table="news" schema="hibernate_db">
+        <id name="id" column="ID"/>
+        <property name="title" column="TITLE"/>
+        <property name="author" column="AUTHOR"/>
+        <property name="date" column="DATE"/>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>表单输入绑定</title>
+</head>
+<body>
+<div id="app">
+<!--  多行文本-->
+  <textarea v-model="message" cols="30" rows="10">{{message}}</textarea>
+  <div style="white-space: pre-line">{{message}}</div>
+  <p style="white-space: pre-line">{{message}}</p>
+  <hr>
+<!--  复选框-->
+  <input type="checkbox" v-model="isRead">
+  <p>{{isRead}}</p>
+  <hr>
+  <input type="checkbox" v-model="favorites" value="打篮球">打篮球
+  <input type="checkbox" v-model="favorites" value="打羽毛球">打羽毛球
+  <input type="checkbox" v-model="favorites" value="跑步">跑步
+  <div>{{favorites}}</div>
+  <hr>
+<!--  单选框-->
+  <input type="radio" value="boy" v-model="gender">男 <input type="radio" value="girl" v-model="gender">女
+  <p>{{gender}}</p>
+<!--  下拉框,multiple属性设置为多选-->
+  <hr>
+  学历：
+  <select v-model="edu" multiple>
+    <option value="本科">本科</option>
+    <option value="硕士">硕士</option>
+  </select>
+  <div>{{edu}}</div>
+  <hr>
+<!--  值绑定——复选框-->
+  <input type="checkbox" true-value="yes" false-value="no" v-model="toggle">已工作
+  <div>{{toggle}}</div>
+<!--  修饰符——“.lazy”,相当于change事件-->
+  <input type="text" v-model.lazy="message">
+  <div>{{message}}</div>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const vm=new Vue({
+    el:'#app',
+    data:{
+      message:'你好啊',
+      isRead:true,
+      favorites:[],
+      gender:'',
+      edu:[],
+      toggle:''
+    }
+  })
+</script>
+</body>
+</html>

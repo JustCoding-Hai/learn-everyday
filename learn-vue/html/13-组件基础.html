@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>组件基础</title>
+</head>
+<body>
+<div id="app">
+<!--  插槽的使用-->
+  <button-counter title="按钮一">Something</button-counter>
+  <button-counter title="按钮二"></button-counter>
+  <hr>
+<!--  向子组件传递数据-->
+  <blog
+   v-for="post in posts"
+   :title="post.title"
+   :key="post.id"
+   :id="post.id"
+  ></blog>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  Vue.component('button-counter', {
+    data:function () {
+      return {
+        num:0
+      }
+    },
+    //自定义属性
+    props:['title'],
+    //注意定义组件的摆放（单个根元素）
+    template: '<div><slot></slot><span>{{title}}</span><button v-on:click="num++">点击了{{num}}次</button></div>'
+  })
+
+    Vue.component('blog',{
+        props:['id','title'],
+        template: '<div>{{id}}_{{title}}</div>'
+      })
+ var vm=new Vue({
+    el:'#app',
+    data:{
+      message:'你好啊',
+      posts:[
+        {
+          id:1,title:'one'
+        },
+        {
+          id:2,title:'two'
+        },
+        {
+          id:3,title:'three'
+        },
+      ]
+    }
+  })
+</script>
+</body>
+</html>

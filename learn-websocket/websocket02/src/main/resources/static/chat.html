@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>在线群聊</title>
+  <script src="/webjars/jquery/jquery.min.js"></script>
+  <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+  <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+</head>
+<body>
+    <td><input type="button" id="connect" value="连接"></td>
+    <td><input type="button" id="disconnect" value="断开连接"></td>
+    <div id="chat" style="display: none;">
+发送给：<input type="text" id="to">发送消息：<input type="text" id="content">
+  <input type="button" value="发送" id="send">
+    <div id="conversation"></div>
+</div>
+<script>
+  $(function () {
+    $("#connect").click(function () {
+      connect();
+    })
+    $("#disconnect").click(function () {
+      disconnect();
+    })
+  })
+  var stompClient=null;
+function  connect() {
+  var socket = new SockJS('/chat');//创建SockJS连接
+  stompClient=Stomp.over(socket);//创建STOMP实例
+  stompClient.connect({},function (success) {//连接成功的回调函数
+    setConnected(true);
+    //订阅服务端发来的消息
+    stompClient.subscribe('/user/queue/chat',function (msg) {
+      //获取到的消息
+      showGreeting(JSON.parse(msg.body));
+    })
+  })
+}
+function disconnect() {
+  if (stompClient!=null){
+    stompClient.disconnect();
+  }
+  setConnected(false);
+}
+function setConnected(flag) {
+  $("#connect").prop("disabled",flag);
+  $("#disconnect").prop("disabled",!flag);
+  if (flag){
+    $("#chat").show();
+  }else{
+    $("#chat").hide();
+  }
+}
+//发送消息
+$("#send").click(function () {
+  stompClient.send('/app/privateChat',{},JSON.stringify(
+    {'to':$("#to").val(),
+      'content':$("#content").val()}));
+})
+  /**
+   * 显示消息
+   * @param msg
+   */
+  function showGreeting(msg) {
+  $("#conversation").append('<div>'+msg.from+':'+msg.content+'</div>');
+}
+</script>
+</body>
+</html>

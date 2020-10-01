@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+
+    <div><h1>{{message}}</h1></div>
+    <div><h2>{{name}}</h2></div>
+
+</div>
+</body>
+<script src="../js/vue.js"></script>
+<script>
+    const app=new Vue({
+        //ES6中：let为变量/const为常量
+        //编程范式：声明式编程
+        el:'#app',//用于挂载管理的元素
+        data:{//定义数据
+            message:'你好啊',
+            name:'你好呀'
+        }
+
+    })
+
+
+
+</script>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>列表渲染</title>
+</head>
+<body>
+<div id="app">
+  <table border="1">
+    <tr>
+      <td>编号</td>
+      <td>书名</td>
+      <td>作者</td>
+    </tr>
+<!--可以使用in或of,key解决组件复用问题-->
+    <tr v-for="(book,index) in books" :key="index">
+      <td>{{index}}</td>
+      <td>{{book.name}}</td>
+      <td>{{book.author}}</td>
+    </tr>
+  </table>
+  <hr>
+<!--遍历对象属性-->
+<!--  第二个参数表示属性名，参数名任取-->
+  <div v-for="(value,p,index) in company" :key="index">{{index}}--{{p}}:{{value}}</div>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const vm=new Vue({
+    el:'#app',
+    data:{
+      message:'你好啊',
+      books:[
+        {
+          name:'三国演义0',
+          author:'罗贯中0'
+        },
+        {
+          name:'三国演义1',
+          author:'罗贯中1'
+        },
+        {
+          name:'三国演义2',
+          author:'罗贯中2'
+        },
+        {
+          name:'三国演义3',
+          author:'罗贯中3'
+        },
+      ],
+      company:{
+        name:'太平洋网络',
+        place:'广州',
+        '测试':'test'
+      }
+    }
+  })
+</script>
+
+</body>
+</html>

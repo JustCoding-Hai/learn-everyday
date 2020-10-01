@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>计算器</title>
+</head>
+<body>
+<div id="app">
+    <h1>当前的计数为：{{counter}}</h1>
+<!--    <button v-on:click="counter++">+</button>-->
+<!--    <button v-on:click="counter&#45;&#45;">-</button>-->
+    <button v-on:click="add">+</button>
+    <button @click="sub">-</button><!--语法糖（即简写）-->
+
+
+</div>
+
+
+
+<script src="../js/vue.js"></script>
+<script>
+    const app=new Vue({
+        el:'#app',
+        data:{
+           counter:0
+        },
+        methods:{
+          add () {
+              console.log("计数器加1");
+              this.counter++
+          },
+          sub() {
+              console.log("计数器减1");
+              this.counter--
+
+          }
+        }
+    })
+
+
+</script>
+</body>
+</html>

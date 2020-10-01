@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue列表显示</title>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="items in moives">{{items}}</li>
+    </ul>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app=new Vue({
+        el:'#app',
+        data:{
+            moives:['闻香识女人','盗梦空间','叶问']
+        }
+
+
+    })
+
+
+</script>
+</body>
+</html>

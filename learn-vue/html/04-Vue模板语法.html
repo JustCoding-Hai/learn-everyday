@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>模板语法</title>
+</head>
+<body>
+
+<div id="app">
+<!--  v-once使用-->
+  <h1>v-once使用</h1>
+<span v-once>这个不会被改变：{{message}}</span>\
+  <!--  v-html使用-->
+  <h1>v-html使用</h1>
+  <div v-html="rawHtml"></div>
+<!--v-bind使用,简写":"-->
+  <h1>v-bind使用</h1>
+  <button :disabled="isButtonDisabled" >点击</button>
+ <!--v-on:click使用,简写"@click"-->
+   <h1>v-on:click使用</h1>
+      <button @click="num++" >点击</button>
+  <div>{{num>5?'to big':num}}</div>
+</div>
+
+
+
+<script src="../js/vue.js"></script>
+<script>
+  const app=new Vue({
+    el:'#app',
+    data:{
+      message:'你好啊',
+      rawHtml:'<h3>原始HTML</h3>',
+      isButtonDisabled:'disabled',
+      num:1,
+    }
+  })
+</script>
+</body>
+</html>

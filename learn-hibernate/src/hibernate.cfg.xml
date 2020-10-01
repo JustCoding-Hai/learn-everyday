@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!--配置连接数据库的基本信息  -->
+        <property name="connection.url">jdbc:mysql://localhost:3306/hibernate_db</property>
+           <!-- 默认localhost可省略成这样:jdbc:mysql:///hibernate_db -->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">123456</property>
+        <!--配置hibernate的基本信息  -->
+         <property name="dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
+       <property name="hibernate.hbm2ddl.auto">update</property>
+        <mapping class="top.javahai.entity.NewsEntity"/>
+        <mapping resource="top/javahai/entity/NewsEntity.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>

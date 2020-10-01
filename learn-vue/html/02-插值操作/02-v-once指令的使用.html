@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>vue</title>
+</head>
+<body>
+<div id="app">
+  <h3>{{message}}</h3>
+<!-- v-once表示元素和组件只渲染一次，不随数据的改变而改变 -->
+  <h3 v-once>{{message}}</h3>
+  <h3>{{link}}</h3>
+</div>
+
+
+<script src="../js/vue.js"></script>
+<script>
+  const app=new Vue({
+    el:'#app',
+    data:{
+      message:'你好啊',
+      link:'sndlsnmda'
+    }
+  })
+
+</script>
+</body>
+</html>

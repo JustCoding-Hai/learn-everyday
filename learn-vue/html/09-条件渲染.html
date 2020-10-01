@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>条件渲染</title>
+</head>
+<body>
+<div id="app">
+
+  <template v-if="isShow">
+    <div>{{message}}</div>
+    <div>Hello java</div>
+    <div>Hello Vue</div>
+  </template>
+  <div v-else>不显示给你看</div>
+<!--  v-if v-else-if v-else-->
+  <div v-if="gender==1">男</div>
+  <div v-else-if="gender==2">女</div>
+  <div v-else>未知</div>
+  <hr>
+<!--  v-else会复用v-if中的元素，加入key使其不复用-->
+  <template v-if="loginType=='username'">
+    <label>用户名:</label>
+    <input type="text" placeholder="请输入用户名" key="username">
+  </template>
+  <template v-else>
+    <label>用户名:</label>
+    <input type="text" placeholder="请输入邮箱" key="email">
+  </template>
+<!--  v-show为false时相当于使用display:none-->
+  <div v-show="isShow">{{message}}</div>
+
+
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const vm=new Vue({
+    el:'#app',
+    data:{
+      message:'你好啊',
+      isShow:false,
+      gender:1,
+      loginType:'username',
+    }
+  })
+</script>
+</body>
+</html>

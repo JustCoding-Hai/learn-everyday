@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>条件指令</title>
+  <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+  <h1>v-if使用</h1>
+<!--  v-if将元素移出DOM-->
+  <div v-if="flag">Hello Vue</div>
+  <h1>v-show使用</h1>
+  <!--  v-show使用display属性，true或false显示或隐藏-->
+  <div v-show="flag">Hello Vue</div>
+  <h1>v-for使用</h1>
+<!--  输出9×9乘法表-->
+  <input type="number" v-model.number="num">
+  <table border="1">
+    <tr v-for="i in num">
+      <td v-for="j in i">
+        {{j}}*{{i}}={{j*i}}
+      </td>
+    </tr>
+  </table>
+<!--  v-on:click使用，绑定点击事件-->
+  <h1>v-on:click使用</h1>
+  <div>{{message}}</div>
+  <button v-on:click="reverseMessage">反转消息</button>
+  <!--  v-model使用，实现表单输入和应用状态的双向绑定-->
+  <h1>v-model使用</h1>
+  <div>{{message2}}</div>
+  <input type="text" v-model="message2">
+<!--  函数的另一种写法-->
+  <br><button v-on:click="test">测试函数</button>
+</div>
+<script>
+  var app=new Vue({
+    el:"#app",
+    data:{
+      flag:true,
+      num:9,
+      message:'Hello vue.js!',
+      message2:'Mamba out'
+    },
+    methods:{
+      reverseMessage:function () {
+         this.message=this.message.split('').reverse().join('');
+      },
+      test(){
+        alert("点击了");
+      }
+    }
+
+  })
+
+</script>
+
+</body>
+</html>

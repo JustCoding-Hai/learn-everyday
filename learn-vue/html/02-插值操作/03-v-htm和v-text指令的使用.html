@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-html的使用</title>
+</head>
+<body>
+<div id="app">
+  <h3>{{message}}</h3>
+<!--  v-html用于解析string的html并渲染出来-->
+  <h3 v-html="message">{{message}}</h3>
+<!--  v-text与Mustache相似，将数据显示在页面-->
+  <h3 v-text="message"></h3>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app=new Vue({
+    el:'#app',
+    data:{
+      message:'<a href="http://www.baidu.com">跳转</a>',
+    }
+  })
+</script>
+
+</body>
+</html>

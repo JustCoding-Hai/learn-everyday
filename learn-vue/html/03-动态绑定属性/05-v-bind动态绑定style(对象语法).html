@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-bind</title>
+</head>
+<body>
+  <div id="app">
+<!--    v-bind必须加上单引号，否则将作为变量处理-->
+    <h2 :style="{fontSize:'50px'}">{{message}}</h2>
+    <h2 :style="{fontSize:finalSize}">{{message}}</h2>
+    <h2 :style="{fontSize:finalSize,backgroundColor:finalColor}">{{message}}</h2>
+    <h2 :style="getStyles()">{{message}}</h2>
+  </div>
+  
+  <script src="../js/vue.js"></script>
+  <script>
+    const app=new Vue({
+      el:'#app',
+      data:{
+        message:'你好啊',
+        finalSize:'100px',
+        finalColor:'red'
+      },
+      methods:{
+        getStyles:function () {
+          return {fontSize:this.finalSize,backgroundColor:this.finalColor}
+
+        }
+      }
+    })
+  </script>
+
+</body>
+</html>

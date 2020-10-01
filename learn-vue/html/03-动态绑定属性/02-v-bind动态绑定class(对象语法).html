@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>v-bind动态绑定</title>
+  <style>
+    .active{
+      color: red;
+    }
+
+  </style>
+</head>
+<body>
+
+<div id="app">
+  <h2 v-bind:class="getClasses()">{{message}}</h2>
+  <h2 v-bind:class="{active:isActive}">{{message}}</h2>
+  <button v-on:click="btnClick">更换颜色</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app=new Vue({
+    el:'#app',
+    data:{
+      message:'你好啊',
+      //active:'active',
+      isActive:true
+    },
+    methods:{
+      btnClick:function(){
+        this.isActive=!this.isActive;
+      },
+      //将对象保存在方法中返回
+      getClasses:function () {
+        return {active:this.isActive}
+      }
+    }
+  })
+</script>
+</body>
+</html>

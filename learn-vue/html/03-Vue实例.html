@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue实例</title>
+  <script src="../js/vue.js"></script>
+
+</head>
+<body>
+<div id="app">
+{{a}}
+</div>
+
+
+<script>
+  var data={a:1,b:null};
+  //Object.freeze()阻止修改现有属性，意味着响应系统无法追踪变化
+  // Object.freeze(data);
+  var vm=new Vue({
+    el:'#app',
+    data: data,
+
+    created(){
+      console.log("created"+this.a);
+  }
+  })
+  console.log(data.a==vm.a);
+  data.a=99;
+  console.log(vm.a);
+  vm.a=11;
+  console.log(data.a);
+  data.b=22;
+  console.log(vm.b);
+  //实例属性前缀用$
+  console.log(vm.$el===document.getElementById("app"));
+  console.log(vm.$data===data);
+
+
+</script>
+
+
+
+</body>
+</html>

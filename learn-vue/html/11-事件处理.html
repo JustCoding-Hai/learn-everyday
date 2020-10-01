@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>事件处理</title>
+</head>
+<body>
+<div id="app">
+  <div>{{counter}}</div>
+<!--  step转为数字-->
+  <input type="text" v-model.number.trim="step">
+  <button v-on:click="increment()">自增</button>
+  <button @click.ctrl.exact="onClickCtrl">点一下</button>
+
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const vm=new Vue({
+    el:'#app',
+    data:{
+      message:'你好啊',
+      counter:0,
+      step:1,
+    },
+    methods:{
+      increment(){
+        this.counter=this.counter+this.step;
+      },
+      onClickCtrl(){
+        alert("点了Ctrl");
+      }
+    }
+  })
+</script>
+</body>
+</html>

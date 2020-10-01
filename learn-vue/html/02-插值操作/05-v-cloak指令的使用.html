@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-cloak</title>
+</head>
+<body>
+<div id="app" >
+<!--  在div解析前有一个属性v-clock（display：none）-->
+<!--  在div解析后没有-->
+  <h3 v-clock>{{message}}</h3>
+
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app=new Vue({
+    el:'#app',
+    data:{
+      message:'你好啊'
+    }
+  })
+</script>
+</body>
+</html>

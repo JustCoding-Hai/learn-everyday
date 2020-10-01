@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue组件初体验</title>
+  <script src="../js/vue.js"></script>
+
+</head>
+<body>
+<h1>Vue组件初体验</h1>
+<div id="app">
+  <ol>
+    <todo-item
+    v-for="item in hobbiesList"
+    v-bind:todo="item"
+    v-bind:key="item.id"
+    >
+
+    </todo-item>
+
+  </ol>
+</div>
+
+<script>
+  Vue.component('todo-item',{
+    props:['todo'],
+    template:'<li>{{todo.text}}</li>'
+
+
+  })
+  var app=new Vue({
+    el:'#app',
+    data:{
+      hobbiesList:[
+        {id:0,text:'唱歌'},
+        {id:1,text:'跳舞'},
+        {id:2,text:'RAP'},
+        {id:3,text:'打篮球'},
+      ]
+    }
+  })
+
+</script>
+
+</body>
+</html>

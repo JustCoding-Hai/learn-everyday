@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>计算属性</title>
+</head>
+<body>
+<!--
+计算属性和方法的区别：
+计算属性只有相关响应式依赖发生改变后才重新计算，触发重新渲染时(数据更新)不会。
+而当触发重新渲染时，调用方法都会再次执行函数
+-->
+<div id="app">
+  <div>原始Message:{{message}}</div>
+  <div>反转的Message:{{reversedMessage}}</div>
+  <div>计算属性返回的当前时间:{{now}}</div>
+  <div>方法返回的当前时间:{{nowMethods()}}</div>
+  <button @click="updMess()">更新Message</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const vm=new Vue({
+    el:'#app',
+    data:{
+      message:'Hello',
+
+    },
+    computed:{
+      reversedMessage(){
+        return this.message.split('').reverse().join('');
+      },
+      now:function () {
+        return Date.now();
+      }
+    },
+    methods:{
+      updMess(){
+        this.message='change';
+      },
+      nowMethods(){
+        return Date.now();
+      }
+    }
+  })
+</script>
+
+</body>
+</html>

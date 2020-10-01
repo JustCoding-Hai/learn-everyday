@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-pre</title>
+</head>
+<body>
+<div id="app">
+<!--  用于跳过这个元素和它子元素的编译过程，用于显示原本的Mustache-->
+  <h3 v-pre>{{message}}</h3>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app=new Vue({
+    el:'#app',
+    data:{
+      message:'你好啊'
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+<!--  对象语法-->
+  <div v-bind:class="{mydiv:isActive,mydiv2:hasBorder}">{{message}}</div>
+<!-- 数组语法-->
+  <div v-bind:class="[setColor,setBorder]">{{message}}</div>
+<!--  计算属性-->
+  <div v-bind:class="classObj">{{message}}</div>
+<!--  数组+对象-->
+  <div v-bind:class="[{mydiv:isActive,mydiv2:hasBorder}]">{{message}}</div>
+
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const vm=new Vue({
+    el:'#app',
+    data:{
+      message:'你好啊',
+      isActive:true,
+      hasBorder:true,
+      setColor:'mydiv',
+      setBorder:'mydiv2'
+    },
+    computed:{
+      classObj(){
+        return {
+          mydiv:this.isActive,
+          mydiv2:this.hasBorder
+        }
+      }
+    }
+  })
+</script>
+
+<style>
+  .mydiv{
+    color:red;
+  }
+  .mydiv2{
+    border: 1px solid black;
+  }
+</style>
+
+</body>
+</html>

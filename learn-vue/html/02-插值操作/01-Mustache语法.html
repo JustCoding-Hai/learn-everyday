@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <h3>{{message}}</h3>
+  <h3>{{firstName+lastName}}</h3>
+  <!--Mustache语法中可以写简单的表达式-->
+  <h3>{{firstName+" "+lastName}}</h3>
+
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app=new Vue({
+    el:'#app',
+    data:{
+      message:'你好啊',
+      firstName:'kobe',
+      lastName:'bryant'
+    }
+
+
+  })
+
+
+</script>
+</body>
+</html>
