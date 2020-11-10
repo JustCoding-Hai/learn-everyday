@@ -46,5 +46,18 @@ class LearnMybatisplusApplicationTests {
         user2.setAge(18);
         userMapper.insert(user2);
     }
+    /**
+     * 测试乐观锁实现
+     */
+    @Test
+    public void testOptimisticLocker(){
+        //查询
+        User user = userMapper.selectById(1326185650508038145L);
+        //修改数据
+        user.setName("Helen Yao");
+        user.setEmail("helen@qq.com");
+        //执行更新
+        userMapper.updateById(user);
+    }
 
 }
