@@ -32,6 +32,8 @@
         <module>learn-thymeleaf</module>
         <module>learn-unittest</module>
         <module>learn-websocket</module>
+        <module>learn-mockito</module>
+        <module>learn-multi_data_source</module>
     </modules>
     <dependencies>
         <dependency>
