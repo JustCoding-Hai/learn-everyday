@@ -30,12 +30,20 @@ public class DynamicDataSourceConfig {
         return DruidDataSourceBuilder.create().build();
     }
 
+    @Bean(name="mydb")
+    @ConfigurationProperties("spring.datasource.druid.third")
+    public DataSource dataSource3(){
+        return DruidDataSourceBuilder.create().build();
+    }
+
+
     @Bean(name="dynamicDataSource")
     @Primary
     public DynamicDataSource dataSource() {
         Map<Object, Object> targetDataSources = new HashMap<>(5);
         targetDataSources.put(DataSourceType.CHATROOM.getName(), dataSource1());
         targetDataSources.put(DataSourceType.BOOK_DB.getName(), dataSource2());
+        targetDataSources.put(DataSourceType.MYDB.getName(), dataSource3());
         return new DynamicDataSource(dataSource1(), targetDataSources);
     }
 

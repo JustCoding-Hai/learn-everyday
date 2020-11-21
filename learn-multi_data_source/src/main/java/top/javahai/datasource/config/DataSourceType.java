@@ -6,7 +6,8 @@ package top.javahai.datasource.config;
  */
 public enum DataSourceType {
     CHATROOM("chatroom"),
-    BOOK_DB("book_db");
+    BOOK_DB("book_db"),
+    MYDB("mydb");
 
     private String name;
 

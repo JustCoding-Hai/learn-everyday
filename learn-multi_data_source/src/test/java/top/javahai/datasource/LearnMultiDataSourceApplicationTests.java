@@ -38,4 +38,6 @@ class LearnMultiDataSourceApplicationTests {
 		//adminInquiryDOS.stream().forEach( System.out::println);
 	}
 
+
+
 }
