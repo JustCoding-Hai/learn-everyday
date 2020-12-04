@@ -69,8 +69,6 @@ public class ScatteringAndGatheringTest {
             socketChannel.close();
 
             serverSocketChannel.close();
-            Selector
-
 
         }
 
