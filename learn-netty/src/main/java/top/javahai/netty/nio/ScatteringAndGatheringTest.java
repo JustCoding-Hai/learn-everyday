@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.Inet4Address;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
+import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.util.Arrays;
@@ -68,6 +69,7 @@ public class ScatteringAndGatheringTest {
             socketChannel.close();
 
             serverSocketChannel.close();
+            Selector
 
 
         }

@@ -20,7 +20,7 @@ public class NIOFileChannel03 {
         FileOutputStream fileOutputStream = new FileOutputStream("D:\\idea_workplace\\learn-everyday\\learn-netty\\src\\main\\java\\top\\javahai\\netty\\nio\\2.txt");
         FileChannel fileChannel02 = fileOutputStream.getChannel();
 
-        //创建字节缓冲区
+        //创建字节缓冲区，大小为10个字节
         ByteBuffer byteBuffer = ByteBuffer.allocate(10);
         //循环读取,写入数据到缓冲区
         while (true){
@@ -31,6 +31,7 @@ public class NIOFileChannel03 {
             if (read==-1){
                 break;
             }
+            //反转缓冲区
             byteBuffer.flip();
 
             //将Buffer中的数据写入到fileChannel02通道中
