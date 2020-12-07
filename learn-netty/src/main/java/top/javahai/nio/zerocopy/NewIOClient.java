@@ -1,4 +1,4 @@
-package top.javahai.netty.nio.zerocopy;
+package top.javahai.nio.zerocopy;
 
 import java.io.FileInputStream;
 import java.io.IOException;

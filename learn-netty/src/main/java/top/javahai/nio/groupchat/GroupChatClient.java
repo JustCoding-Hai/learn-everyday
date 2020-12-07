@@ -1,4 +1,4 @@
-package top.javahai.netty.nio.groupchat;
+package top.javahai.nio.groupchat;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -8,7 +8,6 @@ import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
 import java.util.Iterator;
 import java.util.Scanner;
-import java.util.Set;
 
 /**
  * @author Hai

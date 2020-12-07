@@ -1,4 +1,4 @@
-package top.javahai.netty.nio;
+package top.javahai.nio;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;

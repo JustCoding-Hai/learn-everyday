@@ -1,4 +1,4 @@
-package top.javahai.netty.nio;
+package top.javahai.nio;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
