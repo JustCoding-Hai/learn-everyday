@@ -9,8 +9,6 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.util.NettyRuntime;
 
-import java.net.Socket;
-
 /**
  * @author Hai
  * @program: learn-everyday
@@ -49,8 +47,15 @@ public class NettyServer {
                     });
             System.out.println("服务器启动成功！");
 
-            //绑定一个端口并且同步，生成一个ChannelFuture对象
+            //绑定一个端口并且同步，生成一个ChannelFuture对象，启动服务器
             ChannelFuture channelFuture = bootstrap.bind(6668).sync();
+            channelFuture.addListener(future->{
+                if (future.isSuccess()){
+                    System.out.println("启动服务器成功！");
+                }else{
+                    System.out.println("启动服务器失败！");
+                }
+            });
             //对关闭通道进行监听
             channelFuture.channel().closeFuture().sync();
 
