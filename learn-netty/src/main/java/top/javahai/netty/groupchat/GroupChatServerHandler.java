@@ -28,7 +28,8 @@ public class GroupChatServerHandler extends SimpleChannelInboundHandler<String> 
      */
 
     /**
-     *定义一个channel组，管理所有的channel，channelGroup一定要是静态的
+     *定义一个channel组，管理所有的channel，channelGroup一定要是静态的,因为每个客户端建立的通道都会新建一个Handler，
+     * 如果为非静态，则每个通道不能共享ChannelGroup。
      */
     private static ChannelGroup channelGroup=new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
 
