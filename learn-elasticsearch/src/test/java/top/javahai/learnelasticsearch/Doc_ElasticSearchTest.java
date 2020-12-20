@@ -24,8 +24,10 @@ import org.elasticsearch.client.indices.GetIndexRequest;
 import org.elasticsearch.client.indices.GetIndexResponse;
 import org.elasticsearch.common.unit.TimeValue;
 import org.elasticsearch.common.xcontent.XContentType;
+import org.elasticsearch.index.query.MatchQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.index.query.TermQueryBuilder;
+import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.elasticsearch.search.fetch.subphase.FetchSourceContext;
 import org.junit.jupiter.api.Test;
@@ -155,12 +157,17 @@ public class Doc_ElasticSearchTest {
         //构造搜索条件
         SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
         //构造精确查询
-        TermQueryBuilder termQueryBuilder = QueryBuilders.termQuery("name", "Ethan1");
+        TermQueryBuilder termQueryBuilder = QueryBuilders.termQuery("age", 18);
+        //MatchQueryBuilder matchQueryBuilder = QueryBuilders.matchQuery("name", "Ethan");
+        //searchSourceBuilder.query(matchQueryBuilder);
         searchSourceBuilder.query(termQueryBuilder);
         searchSourceBuilder.timeout(new TimeValue(60, TimeUnit.SECONDS));
         request.source(searchSourceBuilder);
         SearchResponse response = client.search(request, RequestOptions.DEFAULT);
         System.out.println(JSON.toJSONString(response.getHits()));
+        for (SearchHit hit : response.getHits().getHits()) {
+            System.out.println(hit.getSourceAsMap());
+        }
 
     }
 
