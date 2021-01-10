@@ -36,6 +36,7 @@
         <module>learn-mockito</module>
         <module>learn-multi_data_source</module>
         <module>learn-netty</module>
+        <module>learn-oss</module>
     </modules>
     <dependencies>
         <dependency>
