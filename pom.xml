@@ -39,6 +39,7 @@
         <module>learn-oss</module>
         <module>learn-easyexcel</module>
         <module>learn-vod</module>
+        <module>learn-jwt</module>
     </modules>
     <dependencies>
         <dependency>
