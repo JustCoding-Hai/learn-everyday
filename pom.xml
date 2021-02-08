@@ -40,6 +40,7 @@
         <module>learn-easyexcel</module>
         <module>learn-vod</module>
         <module>learn-jwt</module>
+        <module>learn-jvm</module>
     </modules>
     <dependencies>
         <dependency>
