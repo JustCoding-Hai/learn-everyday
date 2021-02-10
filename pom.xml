@@ -41,6 +41,7 @@
         <module>learn-vod</module>
         <module>learn-jwt</module>
         <module>learn-jvm</module>
+        <module>learn-multi_thread</module>
     </modules>
     <dependencies>
         <dependency>
