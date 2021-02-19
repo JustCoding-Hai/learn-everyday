@@ -33,8 +33,10 @@ class Producer extends Thread{
     public void run() {
         for (int i = 1; i <=10; i++) {
             try {
-                buffer.push(new Product(i));
-                System.out.println("生产者-生产了"+i+"号产品");
+                synchronized (buffer){
+                    buffer.push(new Product(i));
+                    System.out.println("生产者-生产了"+i+"号产品");
+                }
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -101,7 +103,7 @@ class Buffer{
      */
     public synchronized void push(Product product) throws InterruptedException {
         //如果容器满了，就需要等待消费者消费
-        if (count==products.length){
+        while (count!=0){
             this.wait();
         }
         //如果容器没满，就将product放入到容器
@@ -116,7 +118,7 @@ class Buffer{
      */
     public synchronized Product pop() throws InterruptedException {
         //如果没有产品，则等待
-        if (count==0){
+        while (count==0){
             this.wait();
         }
         //有则消费

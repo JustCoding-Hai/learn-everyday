@@ -19,16 +19,19 @@ public class ThreadTest03 implements Callable {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         ThreadTest03 threadTest03 = new ThreadTest03();
-        //创建执行服务
-        ExecutorService executorService = Executors.newFixedThreadPool(1);
-        //提交执行
-        Future<Boolean> future = executorService.submit(threadTest03);
-        //获取结果
-        Boolean result = future.get();
-        System.out.println(result);
-        for (int i = 0; i < 1000; i++) {
-            System.out.println("我在学习多线程"+i);
-        }
-        executorService.shutdown();
+//        //创建执行服务
+//        ExecutorService executorService = Executors.newFixedThreadPool(1);
+//        //提交执行
+//        Future<Boolean> future = executorService.submit(threadTest03);
+//        //获取结果
+//        Boolean result = future.get();
+//        System.out.println(result);
+//        for (int i = 0; i < 1000; i++) {
+//            System.out.println("我在学习多线程"+i);
+//        }
+//        executorService.shutdown();
+
+        FutureTask futureTask = new FutureTask(threadTest03);
+        new Thread(futureTask).start();
     }
 }
