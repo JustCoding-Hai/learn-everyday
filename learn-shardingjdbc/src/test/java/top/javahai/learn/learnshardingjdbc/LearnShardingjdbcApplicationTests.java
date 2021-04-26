@@ -1,5 +1,6 @@
 package top.javahai.learn.learnshardingjdbc;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +25,23 @@ class LearnShardingjdbcApplicationTests {
     @Test
     public void testInsert(){
         for (int i = 0; i < 10; i++) {
-            Course course = Course.builder().id(i).name("zhang" + i).userId(i + "").status("normal").build();
+            Course course = new Course();
+            course.setName("zhang"+i);
+            course.setUserId(100L);
+            course.setStatus("normal");
             courseMapper.insert(course);
         }
+    }
+
+
+    @Test
+    public void testSelect(){
+        //查询表1
+        Course course = courseMapper.selectById(1386703799795679234L);
+        //查询表2
+        Course course1 = courseMapper.selectOne(new QueryWrapper<Course>().eq("id", 1386703805315383297L));
+        System.out.println(course);
+        System.out.println(course1);
     }
 
 }

@@ -10,11 +10,9 @@ import lombok.Data;
  * @Date: 2021\4\26 0026-14:37
  */
 @Data
-@Builder
 public class Course {
-    @TableId
-    private long id;
+    private Long id;
     private String name;
-    private String userId;
+    private Long userId;
     private String status;
 }
