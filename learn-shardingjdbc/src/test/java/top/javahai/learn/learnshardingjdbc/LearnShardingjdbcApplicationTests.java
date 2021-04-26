@@ -22,6 +22,9 @@ class LearnShardingjdbcApplicationTests {
     void contextLoads() {
     }
 
+    /**
+     * 测试水平分表-插入操作
+     */
     @Test
     public void testInsert(){
         for (int i = 0; i < 10; i++) {
@@ -34,6 +37,9 @@ class LearnShardingjdbcApplicationTests {
     }
 
 
+    /**
+     * 测试水平分表-查询操作
+     */
     @Test
     public void testSelect(){
         //查询表1
