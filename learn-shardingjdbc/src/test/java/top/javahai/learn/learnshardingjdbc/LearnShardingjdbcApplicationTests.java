@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import top.javahai.learn.learnshardingjdbc.Entity.Course;
+import top.javahai.learn.learnshardingjdbc.Entity.Dict;
 import top.javahai.learn.learnshardingjdbc.Entity.User;
 import top.javahai.learn.learnshardingjdbc.dao.CourseMapper;
+import top.javahai.learn.learnshardingjdbc.dao.DictMapper;
 import top.javahai.learn.learnshardingjdbc.dao.UserMapper;
 
 import javax.xml.ws.Action;
@@ -22,6 +24,9 @@ class LearnShardingjdbcApplicationTests {
 
     @Autowired
     UserMapper userMapper;
+
+    @Autowired
+    DictMapper dictMapper;
 
     @Test
     void contextLoads() {
@@ -113,7 +118,16 @@ class LearnShardingjdbcApplicationTests {
         }
     }
 
-
+    /**
+     * 测试公共表
+     */
+    @Test
+    public void testCommonOperation(){
+        Dict dict = new Dict();
+        dict.setDictCode("a1");
+        dict.setDictName("China");
+        dictMapper.insert(dict);
+    }
 
 
 }
