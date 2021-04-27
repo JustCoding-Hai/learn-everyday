@@ -7,13 +7,13 @@ import lombok.Data;
 
 /**
  * @Author: huangjinhai
- * @Date: 2021\4\26 0026-14:37
+ * @Date: 2021\4\27 0027-10:28
  */
 @Data
 @Builder
-public class Course {
+@TableName("t_user")
+public class User {
     private Long id;
-    private String name;
-    private Long userId;
+    private String username;
     private String status;
 }
