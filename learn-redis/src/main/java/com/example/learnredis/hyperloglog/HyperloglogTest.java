@@ -13,9 +13,9 @@ public class HyperloglogTest {
         Redis redis = new Redis();
         redis.execute(jedis -> {
             for (int i = 0; i < 1000; i++) {
-                jedis.pfadd("uv","u"+i,"u"+(i+1));
+                jedis.pfadd("uv2","v"+i);
             }
-            long uv = jedis.pfcount("uv");
+            long uv = jedis.pfcount("uv2");
             System.out.println(uv);
         });
     }
