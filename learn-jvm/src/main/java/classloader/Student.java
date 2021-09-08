@@ -13,7 +13,5 @@ public class Student {
         System.out.println(student.getClass().getClassLoader());
         System.out.println(Student.class.getClassLoader());
         System.out.println(Class.forName("classloader.Student").getClassLoader());
-        //JDK自带的类,不需要类加载
-        System.out.println(String.class.getClassLoader());
     }
 }
