@@ -40,6 +40,7 @@ public class LambdaDemo {
             }
         }
 
+        int i= 2;
         /**
          * 匿名内部类
          */
@@ -47,6 +48,7 @@ public class LambdaDemo {
 
             @Override
             public void run() {
+                System.out.println(i);
                 System.out.println("匿名内部类：求求你，用Lambda语法创建线程吧!");
             }
         };
