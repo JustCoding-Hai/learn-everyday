@@ -16,11 +16,11 @@ public class RabbitMQUtils {
     private static ConnectionFactory connectionFactory;
     static {
         connectionFactory = new ConnectionFactory();
-        connectionFactory.setHost("39.108.169.57");
+        connectionFactory.setHost("101.43.30.7");
         connectionFactory.setPort(5672);
-        connectionFactory.setUsername("ethan");
-        connectionFactory.setPassword("123456");
-        connectionFactory.setVirtualHost("/learn");
+        connectionFactory.setUsername("hai");
+        connectionFactory.setPassword("hjh12580.");
+        connectionFactory.setVirtualHost("/");
     }
 
     //获取连接
