@@ -91,6 +91,12 @@ public class PublishConfirmTest {
         //开启发布确认
         channel.confirmSelect();
 
+        /*
+         * 线程安全有序的一个哈希表，适用于高并发的情况
+         * 1. 轻松得将序号与消息进行关联
+         * 2. 可以通过序列号轻松批量删除条目
+         * 3. 支持高并发访问
+         */
         ConcurrentSkipListMap<Long, String> outStandingConfirms = new ConcurrentSkipListMap<>();
         /*
          *  确认收到消息的回调

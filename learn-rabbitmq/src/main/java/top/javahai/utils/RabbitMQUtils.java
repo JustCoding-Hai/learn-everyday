@@ -16,10 +16,10 @@ public class RabbitMQUtils {
     private static ConnectionFactory connectionFactory;
     static {
         connectionFactory = new ConnectionFactory();
-        connectionFactory.setHost("101.43.30.7");
+        connectionFactory.setHost("");
         connectionFactory.setPort(5672);
-        connectionFactory.setUsername("hai");
-        connectionFactory.setPassword("hjh12580.");
+        connectionFactory.setUsername("");
+        connectionFactory.setPassword("");
         connectionFactory.setVirtualHost("/");
     }
 
@@ -38,3 +38,4 @@ public class RabbitMQUtils {
     }
 
 }
+
