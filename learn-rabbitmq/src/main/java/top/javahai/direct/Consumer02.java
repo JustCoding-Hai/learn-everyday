@@ -24,6 +24,7 @@ public class Consumer02 {
         channel.queueBind(queue,exchange_name,"error");
         channel.queueBind(queue,exchange_name,"info");
         channel.queueBind(queue,exchange_name,"debug");
+        channel.queueBind(queue,exchange_name,"warn");
         //消费消息
         channel.basicConsume(queue,true,new DefaultConsumer(channel){
             @Override
