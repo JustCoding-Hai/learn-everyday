@@ -1,9 +1,12 @@
 package com.learn.mybatis.bean;
 
+import lombok.Builder;
+
 /**
  * @author Hai
  * @date 2020/2/12 - 13:07
  */
+@Builder
 public class Student {
   private int id;
   private String name;
