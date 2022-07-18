@@ -43,6 +43,7 @@
         <module>learn-jvm</module>
         <module>learn-multi_thread</module>
         <module>learn-pdf</module>
+        <module>learn-tool</module>
     </modules>
     <dependencies>
         <dependency>
