@@ -2,12 +2,14 @@ package top.javahai.datasource.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import top.javahai.datasource.annotation.SpecifyDataSource;
-import top.javahai.datasource.config.DataSourceType;
+import top.javahai.datasource.config.DataSourceTypeEnum;
 import top.javahai.datasource.entity.TUser;
 import top.javahai.datasource.mapper.TUserMapper;
 import top.javahai.datasource.service.ITUserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -30,9 +32,14 @@ public class TUserServiceImpl extends ServiceImpl<TUserMapper, TUser> implements
      * @param user
      * @return
      */
-    @SpecifyDataSource(value = DataSourceType.MYDB)
+    @SpecifyDataSource(value = DataSourceTypeEnum.MY_DB)
     public int insertUser(TUser user){
         return userMapper.insertUser(user);
+    }
+
+    @SpecifyDataSource(value = DataSourceTypeEnum.MY_DB)
+    public List<TUser> selectAll(){
+        return this.list(null);
     }
 
 }

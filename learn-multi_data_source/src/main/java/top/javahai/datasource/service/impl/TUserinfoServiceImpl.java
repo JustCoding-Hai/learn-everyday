@@ -1,7 +1,7 @@
 package top.javahai.datasource.service.impl;
 
 import top.javahai.datasource.annotation.SpecifyDataSource;
-import top.javahai.datasource.config.DataSourceType;
+import top.javahai.datasource.config.DataSourceTypeEnum;
 import top.javahai.datasource.entity.TUserinfo;
 import top.javahai.datasource.mapper.TUserinfoMapper;
 import top.javahai.datasource.service.ITUserinfoService;
@@ -22,11 +22,17 @@ import java.util.List;
 @Service
 public class TUserinfoServiceImpl extends ServiceImpl<TUserinfoMapper, TUserinfo> implements ITUserinfoService {
 
-    @SpecifyDataSource(value = DataSourceType.BOOK_DB)
+    @SpecifyDataSource(value = DataSourceTypeEnum.BOOK_DB)
     public TUserinfo selectUserById(String id){
         HashMap<String, Object> map = new HashMap<>();
         map.put("user_name",id);
         return this.baseMapper.selectByMap(map).get(0);
+    }
+
+
+    @SpecifyDataSource(value = DataSourceTypeEnum.BOOK_DB)
+    public List<TUserinfo> selectAll(){
+        return this.list(null);
     }
 
 }

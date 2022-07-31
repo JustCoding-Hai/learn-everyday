@@ -1,17 +1,28 @@
 package top.javahai.datasource.config;
 
 /**
+ * 数据源枚举类
+ *
  * @author Ethan Huang
  * @create 2020-11-19 14:34
  */
-public enum DataSourceType {
+public enum DataSourceTypeEnum {
+    /**
+     * chatroom
+     */
     CHATROOM("chatroom"),
+    /**
+     * book_db
+     */
     BOOK_DB("book_db"),
-    MYDB("mydb");
+    /**
+     * mydb
+     */
+    MY_DB("mydb");
 
-    private String name;
+    private final String name;
 
-    DataSourceType(String name) {
+    DataSourceTypeEnum(String name) {
         this.name = name;
     }
 
@@ -19,7 +30,4 @@ public enum DataSourceType {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 }

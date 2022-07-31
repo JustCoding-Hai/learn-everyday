@@ -37,4 +37,8 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
     public List<AdminInquiryDO> selectAll(){
         return adminMapper.selectAll();
     }
+
+    public List<Admin> getAll(){
+        return this.list(null);
+    }
 }

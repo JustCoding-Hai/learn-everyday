@@ -38,8 +38,8 @@ public class DataSourceAspect {
 
         SpecifyDataSource ds = method.getAnnotation(SpecifyDataSource.class);
         if (ds == null) {
-            DynamicDataSource.setDataSource(DataSourceType.CHATROOM.getName());
-            logger.info("set datasource is " + DataSourceType.CHATROOM);
+            DynamicDataSource.setDataSource(DataSourceTypeEnum.CHATROOM.getName());
+            logger.info("set datasource is " + DataSourceTypeEnum.CHATROOM);
         } else {
             DynamicDataSource.setDataSource(ds.value().getName());
             logger.info("set datasource is " + ds.value().getName());

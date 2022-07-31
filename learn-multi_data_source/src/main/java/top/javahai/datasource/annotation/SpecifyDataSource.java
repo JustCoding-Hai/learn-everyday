@@ -1,6 +1,6 @@
 package top.javahai.datasource.annotation;
 
-import top.javahai.datasource.config.DataSourceType;
+import top.javahai.datasource.config.DataSourceTypeEnum;
 
 import java.lang.annotation.*;
 
@@ -16,6 +16,6 @@ public @interface SpecifyDataSource {
     /**
      * @return
      */
-    DataSourceType value() default DataSourceType.CHATROOM;
+    DataSourceTypeEnum value() default DataSourceTypeEnum.CHATROOM;
 
 }

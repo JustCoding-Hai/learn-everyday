@@ -1,16 +1,19 @@
 package top.javahai.datasource.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableName;
+
 import java.io.Serializable;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author Ethan
  * @since 2020-11-19
  */
+@TableName(value = "t_user_info")
 public class TUserinfo implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -29,7 +32,7 @@ public class TUserinfo implements Serializable {
      * 所在学院
      */
     @TableField("areaObj")
-    private Integer areaObj;
+    private String areaObj;
 
     /**
      * 姓名
@@ -39,12 +42,11 @@ public class TUserinfo implements Serializable {
     /**
      * 性别
      */
-    private String sex;
+    private Integer sex;
 
     /**
      * 学生照片
      */
-    @TableField("userPhoto")
     private String userPhoto;
 
     /**
@@ -76,11 +78,11 @@ public class TUserinfo implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
-    public Integer getAreaObj() {
+    public String getAreaObj() {
         return areaObj;
     }
 
-    public void setAreaObj(Integer areaObj) {
+    public void setAreaObj(String areaObj) {
         this.areaObj = areaObj;
     }
     public String getName() {
@@ -90,11 +92,11 @@ public class TUserinfo implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-    public String getSex() {
+    public Integer getSex() {
         return sex;
     }
 
-    public void setSex(String sex) {
+    public void setSex(Integer sex) {
         this.sex = sex;
     }
     public String getUserPhoto() {
