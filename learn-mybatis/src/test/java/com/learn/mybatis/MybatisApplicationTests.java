@@ -30,9 +30,5 @@ class MybatisApplicationTests {
       System.out.println("编号："+teacher.getId()+ " 姓名："+teacher.getName());
     }
   }
-  @Test()
-  public void test01(){
-    Driver
-  }
 
 }

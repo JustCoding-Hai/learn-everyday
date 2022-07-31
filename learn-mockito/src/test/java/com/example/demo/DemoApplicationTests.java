@@ -176,7 +176,6 @@ class DemoApplicationTests {
         mock.add(1);
         mock.add(1);
         verifyNoMoreInteractions(mock);
-        AssertEquals.assertEquals();
     }
 
 

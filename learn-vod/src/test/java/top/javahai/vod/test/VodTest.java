@@ -9,6 +9,7 @@ import com.aliyuncs.vod.model.v20170321.GetVideoPlayAuthResponse;
 import org.junit.Test;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author Hai
@@ -109,5 +110,35 @@ public class VodTest {
         return client;
     }
 
+    @Test
+    public void testOptional() {
+        User user=new User();
+        System.out.println(user);
+        user = Optional.ofNullable(user).orElse(createUser());
+        User user1=null;
+        user1 = Optional.ofNullable(user).orElseGet(() -> createUser());
+        System.out.println(user);
+        System.out.println(user1);
+    }
+
+    public User createUser(){
+        User user = new User();
+        user.setName("zhangsan");
+        System.out.println("createUser执行");
+        return user;
+    }
 
 }
+
+class User{
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+

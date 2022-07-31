@@ -44,6 +44,8 @@
         <module>learn-multi_thread</module>
         <module>learn-pdf</module>
         <module>learn-tool</module>
+        <module>learn-hutool</module>
+        <module>learn-sensors</module>
     </modules>
     <dependencies>
         <dependency>
